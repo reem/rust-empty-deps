@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd deps
+mkdir -p ../target/lib
+for i in * ; do
+    if [ -d "$i" ]; then
+        (cd "$i" && make lib && mv target/*/lib/* ../../target/lib/)
+    fi
+done
